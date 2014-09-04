@@ -27,9 +27,4 @@ node[:deploy].each do |application, deploy|
   end
 
   node.set[:opsworks][:rails_stack][:restart_command] = node[:sidekiq][application][:restart_command]
-
-  opsworks_deploy do
-    deploy_data deploy
-    app application
-  end
 end
